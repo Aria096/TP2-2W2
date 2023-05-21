@@ -1,0 +1,432 @@
+/* Variables de couleurs */
+/* ========================================================================== */
+:root {
+
+    --couleur-fond: rgba(227, 239, 235);
+    --couleur-section: rgba(199, 228, 216);
+    --couleur-ombre: rgba(134, 166, 110);
+    --couleur-texte:rgba(2, 39, 14);
+    --couleur-bouton-suivant: rgba(189, 209, 143);
+    --succes-texte: rgba(14, 87, 18);
+    --succes-fond: rgba(71, 151, 57, 0.5);
+    --echec-texte: rgba(69,0, 13, 0.5);
+    --echec-fond: rgba(143, 0, 13, 0.5);
+}
+
+/* Page d'introduction du quiz*/
+/* ========================================================================== */
+.anim-titre-intro {
+    font-family: "Amatic SC";
+    text-align: center;
+    font-size: 6rem;
+    width: 60%;
+}
+
+/*Titre du quiz*/
+.titre-mot {
+    animation: couleur-animation 3s linear forwards;
+  }
+  
+  .titre-mot-1 {
+    --couleur-1: #DF8453;
+    --couleur-2: #5cb599;
+    --couleur-3: #ebb376;
+  }
+  
+  .titre-mot-2 {
+    --couleur-1: #DBAD4A;
+    --couleur-2: #ACCFCB;
+    --couleur-3: #2f6c45;
+  }
+  
+  .titre-mot-3 {
+    --couleur-1: #ACCFCB;
+    --couleur-2: #ebb376;
+    --couleur-3: #ACCFCB;
+  }
+  
+  .titre-mot-4 {
+    --couleur-1: #5cb599;
+    --couleur-2: #DF8453;
+    --couleur-3: #ebb376;
+  }
+  .titre-mot-5 {
+    --couleur-1: #DBAD4A;
+    --couleur-2: #ACCFCB;
+    --couleur-3: #2f6c45;
+  }
+
+  /*animation du titre du quiz*/
+  @keyframes couleur-animation {
+    from {
+        color: var(--couleur-1)
+    }
+    32%   {
+        color: var(--couleur-1)
+    }
+    33%   {
+        color: var(--couleur-2)
+    }
+    65%   {
+        color: var(--couleur-2)
+    }
+    66%   {
+        color: var(--couleur-3)
+    }
+    99%   {
+        color: var(--couleur-3)
+    }
+    to  {
+        color: var(--couleur-1)
+    }
+  }
+
+/*animation du clip-path*/
+.anim-interrogation{
+    display: flex;
+    width: 50vmin;
+    height: 30vw;
+    background: url(../images/feuilles.jpg) 0 0 no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: anim-clip-path 5s ease-in infinite;
+}
+
+@keyframes anim-clip-path {
+    0% {
+        clip-path: polygon(16% 41%, 22% 10%, 50% 2%, 74% 8%, 80% 32%, 58% 59%, 62% 89%, 38% 86%, 41% 56%, 58% 29%, 45% 23%, 35% 42%);
+    }
+
+    33% {
+        clip-path: polygon(25% 1%, 35% 9%, 60% 23%, 75% 44%, 71% 69%, 55% 80%, 61% 92%, 49% 95%, 45% 82%, 24% 76%, 14% 55%, 15% 33%);
+    }
+
+    66% {
+        clip-path: polygon(35% 6%, 68% 5%, 88% 18%, 92% 48%, 83% 62%, 63% 68%, 65% 95%, 49% 95%, 50% 68%, 27% 64%, 18% 49%, 18% 23%);
+    }
+    to{
+        clip-path: polygon(16% 41%, 22% 10%, 50% 2%, 74% 8%, 80% 32%, 58% 59%, 62% 89%, 38% 86%, 41% 56%, 58% 29%, 45% 23%, 35% 42%);
+    }
+}
+/*animation du fond dégradé*/
+main.intro{
+    background-image: linear-gradient(-250deg,#ffcff2 0%, #ffcffb 15%,#dacfff 29%,#cfe4ff 50%, #dacfff 60%, #ffcffb 75%,#ffcff2 100%);
+    background-size: 200% auto;
+    animation: degrade-fond 10s linear infinite;
+}
+
+@keyframes degrader-fond {
+    to {
+      background-position: 600% center;
+    }
+  }
+
+/*Style pour la consigne de l'intro*/
+footer{
+    color:#073f18;
+    font-size: 1rem;
+    font-family: "Amatic SC";
+}
+
+/* Page principale du quiz*/
+/* ========================================================================== */
+
+/*images du quiz*/
+.image-question{
+    height: 18vh;
+    width: 35vw;
+    align-self: center;
+    padding: 0.5rem;
+}
+
+/*explcations des réponses du quiz*/
+div.explication{
+    width: 60%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    padding:1rem;
+   
+}
+
+/*bouton suivant pour la prochaine question*/
+div.btn-suivant{
+    justify-content: center;
+    align-items: center;
+    background-color: var(--couleur-bouton-suivant);
+    height: 3rem;
+    font-size: 1rem;
+    padding: 10px;
+    clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+    transition: scale 0.5s ease-in-out;
+}
+
+/*bouton suivant survolé*/
+div.btn-suivant:hover,
+div.btn-suivan:active {
+    transform: scale(1.2);
+    }
+
+/*choix de réponse succes*/
+div.choix.reponse-succes {
+    
+    animation:animer-reponse-succes 2s ; 
+    background-color: var(--succes-fond);
+    color: var(--succes-texte);
+    transition: background-color 0.25s, color 0.25s;
+}
+
+/*pseudo élément succes*/
+div.choix.reponse-succes::after{
+    position: absolute;
+    content:"\2714";
+    top:0%;
+    right:2%;
+    margin:2px;
+}
+
+/*choix de réponse échec*/
+div.choix.reponse-echec {
+    animation:animer-reponse-echec 2s  ; 
+    background-color: var(--echec-fond);
+    color: var(--echec-texte);
+    transition: background-color 0.25s, color 0.25s;
+}
+
+/*pseudo élément échec*/
+div.choix.reponse-echec::after{
+    position: absolute;
+    content:"\2716";
+    top:0%;
+    right:2%;
+    margin:2px;
+}
+
+/* Animation des choix de réponse */
+/* ========================================================================== */
+@keyframes animer-reponse-succes {
+    from, 70%, to {
+        transform: translateY(0);
+    }
+
+    10%, 30%, 50% {
+        transform: translateY(-5%);
+    }
+
+    20%, 40%, 60% {
+        transform: translateY(5%);
+    }
+}
+
+@keyframes animer-reponse-echec {
+    from, 70%, to {
+        transform: translateX(0);
+    }
+
+    10%, 30%, 50% {
+        transform: translateX(-5%);
+    }
+
+    20%, 40%, 60% {
+        transform: translateX(5%);
+    }
+}
+
+/* Mise en page de la page principale du quiz
+============================================================*/
+main.quiz {
+    flex-direction: column;
+    display: none;
+}
+
+main.quiz > header {
+    font-family: "Amatic SC";
+    font-size: 4rem;
+    color:#073f18;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+/*div des infos pour le joueur*/
+.tableau-infos{
+    display: flex;
+    flex-direction: row;
+    width:80%;
+    background-color: var(--couleur-section);
+    justify-content: space-evenly
+}
+.tableau-infos>div{
+    padding:1rem;
+}
+
+/*temps affiché*/
+.temps{
+    font-size: 2rem;
+    position: relative;
+    bottom: 0;
+}
+
+/*points obtenus*/
+.points{
+    font-size: 2rem;
+    position: relative;
+    bottom: 0;
+}
+
+/*numéro de la question en cours*/
+.numero-question{
+    font-size: 2rem;
+    position: relative;
+    bottom: 0;
+
+}
+
+/*questions*/
+.titre-question {
+    display: flex;
+    flex: 0 0 auto; 
+    font-size: 1rem;
+    width: 80%;
+    margin:auto;
+    align-self: center;
+    font-size: 1rem;
+
+}
+
+/*réponse*/
+.les-choix-de-reponse {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+/*vrai ou faux*/
+div.choix {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 20vmin;
+    height: 10vmin;
+    color: var(--couleur-texte);
+    position:relative;
+    transition: transform 0.5s;
+    background-color:#afd4a7;
+    text-align: center;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 20px var(--couleur-ombre),
+}
+/*vrai ou faux survolé*/
+div.choix:hover,
+div.choix:active {
+    transform: scale(1.2);
+}
+
+/* Page de fin du quiz
+============================================================*/
+main.fin {
+    font-size: 3rem;
+    flex-direction: column;
+    display: none;
+}
+/*résultat du joueur*/
+.resultat {
+    font-family: "Amatic SC";
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin: auto;
+    width: 30rem;
+    height: 20rem;
+    background-color: var(--couleur-section);
+    color:var(--couleur-texte);
+    transform: rotateZ(0) scale(0) ;
+    animation: animer-resultat 5s ease-in-out forwards;
+}
+
+/*animation du résultat*/
+@keyframes animer-resultat {
+
+ from {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translateY(0px);
+  }
+  25% {
+    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+    transform: translateY(-20px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+    transform: translateY(0px);
+  }
+  75% {
+    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+    transform: translateY(-20px);
+  }
+  to {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translateY(0px);
+  }
+}
+
+/*bouton pour rejouer*/
+main.fin .btn-recommencer {
+    cursor: pointer;
+    align-self: center;
+    margin: auto;
+    font-size: 3rem;
+    margin-top: 2rem;
+    opacity: 0;
+    color: #5cb599;
+    transition: opacity 2s;
+}
+
+/* Ajustement pour les écrans de taille moyenne et plus grande
+=============================================================== */
+@media screen and (min-width: 768px) {
+
+    section .les-choix-de-reponse {
+        /*Conteneur flex en rangée*/
+        flex-direction: row;
+    }
+    .quiz section {
+        flex-direction: row;
+    }
+    .image-question{
+        height: 50%;
+        
+        padding: 2rem;
+    }
+
+    .titre-question {
+        font-size: 1.5rem;
+        width: 40%;
+    }
+    .anim-titre-intro {
+        width: 80%;
+        font-size: 7rem;
+        
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+
+    main.quiz > header {
+        font-size: 5rem;
+    }
+
+    .image-question{
+        height: 50%;
+        padding: 3rem;
+    }
+
+    .titre-question {
+        font-size: 2rem;
+    }
+ 
+}

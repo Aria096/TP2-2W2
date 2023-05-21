@@ -1,0 +1,68 @@
+/* Normalisation supplémentaire 
+============================================================================= */
+
+/* Sélecteurs additionnels pour les pseudo-éléments */
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select:none;
+}
+:root {
+    --couleur-fond: rgba(227, 239, 235);
+    --couleur-section: rgba(199, 228, 216);
+    --couleur-ombre: rgba(134, 166, 110);
+    --couleur-texte:rgba(2, 39, 14);
+}
+
+/* Mise en page
+============================================================*/
+html {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: clamp(14px, 0.5rem + 0.5vw, 24px);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--couleur-fond);
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    color:#073f18;
+}
+
+main, section, footer {
+    margin-top: 2vh;
+}
+
+.quiz section {
+    min-height: 20vh;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    background-color: var(--couleur-section);
+    box-shadow: 0 10px 20px var(--couleur-ombre), 0 6px 6px rgba(0, 0, 0, 0.23);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+
+<head>
+    <title>TIM-2W2 - TP2</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="favicon.png" sizes="all">
+
+    <!-- Ajustement de la taille du viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Polices de caractères utilisées-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Polices d'icônes utilisées-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Références aux CSS-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styleBase.css">
+    <link rel="stylesheet" href="css/styleQuiz.css">
+
+</head>
+
+<body class = "degrade-fond">
+    <main class="intro">
+        <div class="anim-titre-intro">
+            <span class="titre-mot titre-mot-1">Connaissez</span>
+            <span class="titre-mot titre-mot-2">-</span>
+            <span class="titre-mot titre-mot-3">vous</span>
+            <span class="titre-mot titre-mot-4">les</span>
+            <span class="titre-mot titre-mot-5">plantes</span>
+            <div class="anim-interrogation"></div>
+        </div>
+        <footer></footer>
+    </main>
+    <main class="quiz">
+        <header> Les plantes
+            <div class = "tableau-infos">
+                <div class="numero-question"></div>
+                <div class="temps"></div>
+                <div class="points"></div>
+            </div>
+        </header>
+        <section>
+            <img class= image-question src="images/cactus.png" alt="">
+            <div class="titre-question"></div>
+        </section>
+        <section>
+            <div class="les-choix-de-reponse"></div>
+        </section>
+    </main>
+    <main class="fin">
+        <span class="material-icons btn-recommencer">cached</span>
+    </main>
+
+    <!-- Chargement des scripts -->
+    <script src="js/questionsQuiz.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
